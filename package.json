@@ -1,0 +1,31 @@
+{
+  "name": "atolye15-stajkampi2019",
+  "version": "1.0.0",
+  "description": "Atölye15 Staj Kampında sorulan backend sorusuna çözüm.",
+  "bin": {
+    "squareci": "src/index.ts"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gencoglutugrul/atolye15-stajKampi2019.git"
+  },
+  "author": "Tuğrul Gençoğlu",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gencoglutugrul/atolye15-stajKampi2019/issues"
+  },
+  "homepage": "https://github.com/gencoglutugrul/atolye15-stajKampi2019#readme",
+  "devDependencies": {
+    "eslint": "^8.16.0",
+    "prettier": "^2.6.2",
+    "ts-node": "^10.8.0"
+  },
+  "dependencies": {
+    "joi": "^17.6.0",
+    "yargs": "^17.5.1",
+    "yurnalist": "^2.1.0"
+  }
+}
