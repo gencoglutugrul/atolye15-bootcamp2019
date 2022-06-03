@@ -11,15 +11,11 @@ export const runContainer = async (
   image: string,
   workingPath: string
 ): Promise<string> => {
-  try {
-    const result = await execFileAsync(
-      'docker',
-      ['run', '-id', '-v', workingPath + ':/app', '-w', '/app', image]
-    )
-    return result.stdout.trim()
-  } catch (err) {
-    throw Error('Error: Container could not be run! ' + err.message)
-  }
+  const result = await execFileAsync(
+    'docker',
+    ['run', '-id', '-v', workingPath + ':/app', '-w', '/app', image]
+  )
+  return result.stdout.trim()
 }
 
 export const execOnContainer = async (
