@@ -28,7 +28,7 @@ export const execOnContainer = async (
 ): Promise<ConsoleOutput> => {
   return await execFileAsync(
     'docker',
-    ['exec', container, command]
+    ['exec', container, ...command.split(' ')]
   )
 }
 
