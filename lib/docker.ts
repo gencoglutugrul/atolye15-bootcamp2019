@@ -1,6 +1,10 @@
 import { execFile } from 'child_process'
 import { promisify } from 'util'
 
+interface ConsoleOutput{
+  stdout: string
+  stderr: string
+}
 const execFileAsync = promisify(execFile)
 
 export const runContainer = async (
@@ -21,8 +25,8 @@ export const runContainer = async (
 export const execOnContainer = async (
   container: string,
   command: string
-): Promise<void> => {
-  await execFileAsync(
+): Promise<ConsoleOutput> => {
+  return await execFileAsync(
     'docker',
     ['exec', container, 'bash', '-c', command]
   )
@@ -30,8 +34,8 @@ export const execOnContainer = async (
 
 export const stopContainer = async (
   container: string
-): Promise<void> => {
-  await execFileAsync(
+): Promise<ConsoleOutput> => {
+  return await execFileAsync(
     'docker',
     ['stop', container]
   )
@@ -39,8 +43,8 @@ export const stopContainer = async (
 
 export const removeContainer = async (
   container: string
-): Promise<void> => {
-  await execFileAsync(
+): Promise<ConsoleOutput> => {
+  return await execFileAsync(
     'docker',
     ['rm', container]
   )
