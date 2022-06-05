@@ -10,7 +10,7 @@ I looked up the old code base and I ask myself "How could I've done this mess?".
 + /bin
   - /squareci.ts
 + /lib
-+ /test
++ /tests
 ```
 
 As for the argument parsing, I knew that my old choice (yargs package) is enough for this job. I just implemented it as a ts module.
