@@ -3,12 +3,12 @@ import * as YAML from 'yaml'
 
 import { readFile } from 'fs/promises'
 
-interface ITask{
+export interface ITask{
   name: string,
   run: string
 }
 
-interface IConfig{
+export interface IConfig{
   image: string
   runInParallel: boolean
   exitOnFailure: boolean
@@ -37,14 +37,15 @@ export const getConfig =
       image: Joi.string().required(),
       runInParallel: Joi.bool().default(false),
       exitOnFailure: Joi.bool().default(true),
-      before: Joi.array().items(taskSchema),
-      steps: Joi.array().items(taskSchema),
-      after: Joi.array().items(taskSchema)
+      before: Joi.array().items(taskSchema).required(),
+      steps: Joi.array().items(taskSchema).required(),
+      after: Joi.array().items(taskSchema).required()
     })
       .validate(config, { stripUnknown: true })
 
     if (error) {
       throw new Error(`Config validation error: ${error.message}`)
     }
+
     return validatedConfig
   }
