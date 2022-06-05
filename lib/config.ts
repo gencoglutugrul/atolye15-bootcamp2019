@@ -19,7 +19,10 @@ export interface IConfig{
 
 export const getConfig =
   async (configFile: string): Promise<IConfig> => {
-    const fileExtension = configFile.split('.').pop()?.toLowerCase() || ''
+    let fileExtension = configFile.split('.').pop()
+    fileExtension = fileExtension === configFile ? '' : fileExtension
+    fileExtension = fileExtension.toLowerCase()
+
     if (['json', 'yaml'].indexOf(fileExtension) === -1) {
       throw Error('Config file must be given in json or yaml format.')
     }
