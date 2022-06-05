@@ -6,7 +6,7 @@ import { promisify } from 'util'
 
 const execFileAsync = promisify(execFile)
 
-describe('Docker Service', () => {
+describe('Docker Module', () => {
   let container = null
   const workingPath = path.join(process.cwd(), 'tests')
   beforeAll(async () => {
